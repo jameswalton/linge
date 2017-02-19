@@ -20,10 +20,13 @@ class Vector(object):
         return self.coordinates == v.coordinates
 
     def plus(self, v):
-        return [x + y for x, y in zip(self.coordinates, v)]
+        new_coordinates = [x + y for x, y in zip(self.coordinates, v)]
+        return Vector(new_coordinates)
 
     def minus(self, v):
-        return [x - y for x, y in zip(self.coordinates, v)]
+        new_coordinates = [x - y for x, y in zip(self.coordinates, v)]
+        return Vector(new_coordinates)
 
-    def scalar_multiply(self, scalar):
-        return [x * scalar for x in self.coordinates]
+    def times_scalar(self, scalar):
+        new_coordinates = [x * scalar for x in self.coordinates]
+        return Vector(new_coordinates)
