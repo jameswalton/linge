@@ -1,3 +1,5 @@
+from math import sqrt
+
 class Vector(object):
     def __init__(self, coordinates):
         try:
@@ -15,7 +17,6 @@ class Vector(object):
     def __str__(self):
         return 'Vector: {}'.format(self.coordinates)
 
-
     def __eq__(self, v):
         return self.coordinates == v.coordinates
 
@@ -30,3 +31,10 @@ class Vector(object):
     def times_scalar(self, scalar):
         new_coordinates = [x * scalar for x in self.coordinates]
         return Vector(new_coordinates)
+
+    def magnitude(self):
+        return sqrt(sum(map(lambda x: (x*x), self.coordinates)))
+
+    def unit(self):
+        normalized = 1.0/self.magnitude()
+        return self.times_scalar(normalized)

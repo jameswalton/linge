@@ -16,3 +16,23 @@ class VectorTest(unittest.TestCase):
         v = Vector([1.671, -1.012, -0.318])
         new_vector = v.times_scalar(7.41)
         self.assertEqual(new_vector, Vector([12.38211, -7.49892, -2.35638]))
+
+    def test_magnitude_2d(self):
+        v = Vector([-0.221, 7.437])
+        magnitude = v.magnitude()
+        self.assertEqual(magnitude, 7.440282924728065)
+
+    def test_magnitude_3d(self):
+        v = Vector([8.813, -1.331, -6.247])
+        magnitude = v.magnitude()
+        self.assertEqual(magnitude, 10.884187567292289)
+
+    def test_unit_2d(self):
+        v = Vector([5.581, -2.136])
+        unit = v.unit()
+        self.assertEqual(unit, Vector([0.9339352140866403, -0.35744232526233]))
+
+    def test_unit_3d(self):
+        v = Vector([1.996, 3.108, -4.554])
+        unit = v.unit()
+        self.assertEqual(unit, Vector([0.3404012959433014, 0.5300437012984873, -0.7766470449528029]))
